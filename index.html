@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Saint Valentin ❤️</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6eb;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        .buttons {
+            position: relative;
+            width: 400px;
+            height: 250px;
+        }
+
+        button {
+            padding: 12px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+        }
+
+        #yes {
+            background-color: #ff4d6d;
+            color: white;
+        }
+
+        #no {
+            position: absolute;
+            left: 250px;
+            top: 50px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Veux-tu être ma Valentine ? ❤️</h1>
+
+    <div class="buttons">
+        <button id="yes" onclick="goToLovePage()">Oui</button>
+        <button id="no">Non</button>
+    </div>
+
+    <script>
+        const noButton = document.getElementById("no");
+        const container = document.querySelector(".buttons");
+
+        function moveButton() {
+            const maxX = container.clientWidth - noButton.offsetWidth;
+            const maxY = container.clientHeight - noButton.offsetHeight;
+
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+
+            noButton.style.left = x + "px";
+            noButton.style.top = y + "px";
+        }
+
+        // fuit dès qu'on s'approche
+        noButton.addEventListener("mouseenter", moveButton);
+        noButton.addEventListener("mousemove", moveButton);
+
+        function goToLovePage() {
+            window.location.href = "oui.html";
+        }
+    </script>
+
+</body>
+</html>
